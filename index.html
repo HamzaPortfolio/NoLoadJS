@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SPA Loader Documentation</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      line-height: 1.6;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #222;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 1rem;
+      overflow-x: auto;
+      border-left: 4px solid #007acc;
+      font-family: "Courier New", Courier, monospace;
+    }
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .donation {
+      margin-top: 3rem;
+      padding: 1rem;
+      border: 1px solid #007acc;
+      background: #e6f0fa;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Simple SPA Loader Documentation</h1>
+
+  <p>This is a lightweight JavaScript solution to load multiple HTML pages inside a single <code>index.html</code> without reloading the page. It uses the <code>history.pushState</code> API to update the URL and fetches content dynamically from the <code>pages/</code> folder.</p>
+
+  <h2>Project Structure (Required)</h2>
+  <p>For this SPA loader to work correctly, the following project structure is <strong>compulsory</strong>:</p>
+  
+  <pre>
+/project
+  ├── index.html       &lt;!-- This is your main HTML file where the SPA loader is included --&gt;
+  ├── pages/           &lt;!-- Folder containing separate HTML content files --&gt;
+  │    ├── about.html
+  │    └── services.html
+  </pre>
+
+  <h2>How It Works</h2>
+  <ul>
+    <li><code>index.html</code> contains the basic layout and the SPA loader script included via CDN.</li>
+    <li>Links with the class <code>spa-link</code> trigger JavaScript to load corresponding page content inside a content container without full page reload.</li>
+    <li>The URL updates dynamically using <code>history.pushState</code> so users can bookmark or navigate back and forth normally.</li>
+    <li>If the path is <code>/</code>, default content is loaded directly inside <code>index.html</code>.</li>
+    <li>Other paths fetch HTML files from the <code>pages/</code> folder and inject them inside the content container.</li>
+  </ul>
+
+  <h2>Include the SPA Loader Script (CDN)</h2>
+  <p>Add this line before the closing <code>&lt;/body&gt;</code> tag in your <code>index.html</code> to include the loader script:</p>
+
+  <pre>&lt;script src="https://noloadjs.netlify.app/noload.js"&gt;&lt;/script&gt;</pre>
+
+  <h2>Example HTML Snippet</h2>
+  <pre>
+&lt;!-- index.html --&gt;
+&lt;body&gt;
+  &lt;nav&gt;
+    &lt;a href="/" class="spa-link"&gt;Main Page&lt;/a&gt;
+    &lt;a href="/about" class="spa-link"&gt;About&lt;/a&gt;
+    &lt;a href="/services" class="spa-link"&gt;Services&lt;/a&gt;
+  &lt;/nav&gt;
+
+  &lt;div id="content"&gt;
+    &lt;!-- Dynamic content will load here --&gt;
+  &lt;/div&gt;
+
+  &lt;script src="https://noloadjs.netlify.app/noload.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+  </pre>
+
+  <h2>Notes</h2>
+  <ul>
+    <li>The <code>index.html</code> file <strong>must</strong> exist in your root folder.</li>
+    <li>The <code>pages/</code> folder <strong>must</strong> contain all other HTML content files to be loaded dynamically.</li>
+    <li>Links that you want to load dynamically should have the class <code>spa-link</code> and use relative paths starting with <code>/</code>.</li>
+  </ul>
+
+  <h2>Support This Project</h2>
+  <p>If you find this project helpful, please consider supporting it with a donation. Your support helps keep the project alive and improve it further.</p>
+
+  <div class="donation">
+    <a href="https://www.buymeacoffee.com/hamza" target="_blank" rel="noopener noreferrer">☕ Donate Here</a>
+  </div>
+
+</body>
+</html>
