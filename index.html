@@ -31,17 +31,20 @@
     a:hover {
       text-decoration: underline;
     }
-    .donation {
-      margin-top: 3rem;
-      padding: 1rem;
-      border: 1px solid #007acc;
-      background: #e6f0fa;
-      text-align: center;
-      font-weight: bold;
+    header {
+      margin-bottom: 2rem;
     }
   </style>
 </head>
 <body>
+
+  <header>
+    <nav>
+      <a href="/" class="spa-link">Main Page</a>
+      <a href="/about" class="spa-link">About</a>
+      <a href="/services" class="spa-link">Services</a>
+    </nav>
+  </header>
 
   <h1>Simple SPA Loader Documentation</h1>
 
@@ -52,8 +55,8 @@
   
   <pre>
 /project
-  ├── index.html       &lt;!-- This is your main HTML file where the SPA loader is included --&gt;
-  ├── pages/           &lt;!-- Folder containing separate HTML content files --&gt;
+  ├── index.html       <!-- This is your main HTML file where the SPA loader is included -->
+  ├── pages/           <!-- Folder containing separate HTML content files -->
   │    ├── about.html
   │    └── services.html
   </pre>
@@ -76,15 +79,20 @@
   <pre>
 &lt;!-- index.html --&gt;
 &lt;body&gt;
-  &lt;nav&gt;
-    &lt;a href="/" class="spa-link"&gt;Main Page&lt;/a&gt;
-    &lt;a href="/about" class="spa-link"&gt;About&lt;/a&gt;
-    &lt;a href="/services" class="spa-link"&gt;Services&lt;/a&gt;
-  &lt;/nav&gt;
+  &lt;header&gt;
+    &lt;nav&gt;
+      &lt;a href="/" class="spa-link"&gt;Main Page&lt;/a&gt;
+      &lt;a href="/about" class="spa-link"&gt;About&lt;/a&gt;
+      &lt;a href="/services" class="spa-link"&gt;Services&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
 
-  &lt;div id="content"&gt;
-    &lt;!-- Dynamic content will load here --&gt;
+  &lt;div id="main-section"&gt;
+    &lt;h2&gt;Welcome to Home!&lt;/h2&gt;
+    &lt;p&gt;This is default content.&lt;/p&gt;
   &lt;/div&gt;
+
+  &lt;div id="content"&gt;&lt;/div&gt;
 
   &lt;script src="https://noloadjs.netlify.app/noload.js"&gt;&lt;/script&gt;
 &lt;/body&gt;
@@ -96,7 +104,6 @@
     <li>The <code>pages/</code> folder <strong>must</strong> contain all other HTML content files to be loaded dynamically.</li>
     <li>Links that you want to load dynamically should have the class <code>spa-link</code> and use relative paths starting with <code>/</code>.</li>
   </ul>
-
 
 </body>
 </html>
